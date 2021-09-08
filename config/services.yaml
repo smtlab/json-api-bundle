@@ -1,0 +1,7 @@
+services:
+    SmtLab\JsonApiServerBundle\JsonApiServer:
+        class: SmtLab\JsonApiServerBundle\JsonApiServer
+        arguments: ['@doctrine.orm.entity_manager']
+    SmtLab\JsonApiServerBundle\Controller\JsonApiController:
+        class: SmtLab\JsonApiServerBundle\Controller\JsonApiController
+        tags: ['controller.service_arguments']

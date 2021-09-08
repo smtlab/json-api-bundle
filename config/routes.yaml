@@ -1,0 +1,5 @@
+index:
+  path: /api/v1/{catch_all}
+  controller: SmtLab\JsonApiServerBundle\Controller\JsonApiController
+  requirements:
+    catch_all: ".*"
