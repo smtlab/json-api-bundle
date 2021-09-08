@@ -1,5 +1,5 @@
 <?php 
-namespace SmtLab\JsonApiServerBundle\DependencyInjection;
+namespace SmtLab\JsonApiBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

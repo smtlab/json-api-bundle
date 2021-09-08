@@ -30,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SmtLab\\": "src/"
+            "SmtLab\\JsonApiBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SmtLab\\Tests\\": "tests/"
+            "SmtLab\\JsonApiBundle\\Tests\\": "tests/"
         }
     },
     "conflict": {

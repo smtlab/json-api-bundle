@@ -1,6 +1,6 @@
 <?php
 
-namespace SmtLab\JsonApiServerBundle;
+namespace SmtLab\JsonApiBundle;
 
 use Exception;
 use Tobyz\JsonApiServer\JsonApi;
@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
-use SmtLab\JsonApiServerBundle\Adapter\DoctrineOrmAdapter;
+use SmtLab\JsonApiBundle\Adapter\DoctrineOrmAdapter;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 
 class JsonApiServer

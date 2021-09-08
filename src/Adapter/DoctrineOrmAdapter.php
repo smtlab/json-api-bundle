@@ -1,6 +1,6 @@
 <?php
 
-namespace SmtLab\JsonApiServerBundle\Adapter;
+namespace SmtLab\JsonApiBundle\Adapter;
 
 use Doctrine\ORM\QueryBuilder;
 use Tobyz\JsonApiServer\Context;

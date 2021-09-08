@@ -1,8 +1,8 @@
 <?php
 
-namespace SmtLab\JsonApiServerBundle\Controller;
+namespace SmtLab\JsonApiBundle\Controller;
 
-use SmtLab\JsonApiServerBundle\JsonApiServer;
+use SmtLab\JsonApiBundle\JsonApiServer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
