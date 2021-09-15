@@ -1,4 +1,4 @@
-index:
+smtlab_json_api:
   path: /api/v1/{catch_all}
   controller: SmtLab\JsonApiBundle\Controller\JsonApiController
   requirements:
