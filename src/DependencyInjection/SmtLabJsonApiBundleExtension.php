@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class SmtLabJsonApiServerExtension extends Extension
+class SmtLabJsonApiBundleExtension extends Extension
 {
    function load(array $configs, ContainerBuilder $container)
    {
