@@ -8,10 +8,11 @@ use Tobyz\JsonApiServer\Schema\Type;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Doctrine\ORM\Mapping\ClassMetadata;
 use Doctrine\ORM\EntityManagerInterface;
+use Tobyz\JsonApiServer\Extension\Atomic;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
 use SmtLab\JsonApiBundle\Adapter\DoctrineOrmAdapter;
+use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
 
 class JsonApiServer
@@ -38,6 +39,7 @@ class JsonApiServer
         /** @var ClassMetaData[] */
         $metas = $this->em->getMetadataFactory()->getAllMetadata();
 
+        $api->extension(new Atomic());
         foreach ($metas as $meta) {
             $api->resourceType(
                 str_replace('App\Entity\\', '', $meta->getName()),
