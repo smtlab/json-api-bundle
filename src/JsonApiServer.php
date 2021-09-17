@@ -42,7 +42,7 @@ class JsonApiServer
         $api->extension(new Atomic());
         foreach ($metas as $meta) {
             $api->resourceType(
-                str_replace('App\Entity\\', '', $meta->getName()),
+                str_replace('App\Entity\\', '', $meta->getName() . 's'),
                 new DoctrineOrmAdapter($meta->getName(), $this->em),
                 function (Type $type) use ($meta) {
 
@@ -65,7 +65,7 @@ class JsonApiServer
                                 ->includable();
                         }
                         if (in_array($association['type'], [ClassMetadataInfo::ONE_TO_MANY, ClassMetadataInfo::MANY_TO_MANY, ClassMetadataInfo::TO_MANY])) {
-                            $type->hasMany(str_replace('App\Entity\\', '', $association['targetEntity']))
+                            $type->hasMany(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
                                 ->property($association['fieldName'])->filterable()->includable();
                         }
                     }
