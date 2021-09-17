@@ -60,7 +60,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function filterByAttribute($query, Attribute $attribute, $value, string $operator = '='): void
     {
-        $query->where($this->name . '.' . $attribute->getName() . ' ' . $operator . ' :' . $attribute->getName());
+        $query->where($this->name . 's.' . $attribute->getName() . ' ' . $operator . ' :' . $attribute->getName());
         $query->setParameter($attribute->getName(), $value);
     }
 
@@ -161,7 +161,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function getHasOne($model, HasOne $relationship, bool $linkageOnly, Context $context)
     {
-        return $model->{'get' . $relationship->getProperty()}();
+        return $model->{'get' . ucfirst($relationship->getProperty())}();
     }
 
     /**
@@ -171,9 +171,12 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function getHasMany($model, HasMany $relationship, bool $linkageOnly, Context $context)
     {
-        $items = $model->{'get' . $relationship->getProperty()}();
+        $items = $model->{'get' . ucfirst($relationship->getProperty())}();
 
-        return $items->count() > 1 ? $items->toArray() : [];
+        if (is_array($items)) {
+            return $items;
+        }
+        return $items->count() > 0 ? $items->toArray() : [];
     }
 
     /**
@@ -218,7 +221,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function setHasOne($model, HasOne $relationship, $related): void
     {
-        $model->{'set' . $this->snakeCaseToCamelCase($relationship->getName(), true, '-')}($related);
+        $model->{'set' . ucfirst($relationship->getProperty())}($related);
     }
 
     /**
@@ -235,7 +238,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function saveHasMany($model, HasMany $relationship, array $related): void
     {
-        foreach ($model->{'get' . $this->snakeCaseToCamelCase($relationship->getType(), true, '-')}() as $relation) {
+        foreach ($model->{'get' . ucfirst($relationship->getProperty())}() as $relation) {
             $this->em->persist($relation);
         }
         $this->em->flush();
