@@ -59,14 +59,17 @@ class JsonApiServer
 
                     foreach ($meta->getAssociationMappings() as $association) {
                         if (in_array($association['type'], [ClassMetadataInfo::ONE_TO_ONE, ClassMetadataInfo::MANY_TO_ONE])) {
-                            $type->hasOne(str_replace('App\Entity\\', '', $association['targetEntity']))
+                            $type->hasOne($association['fieldName'])
+                                ->type(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
                                 ->property($association['fieldName'])
                                 ->filterable()
                                 ->includable();
                         }
                         if (in_array($association['type'], [ClassMetadataInfo::ONE_TO_MANY, ClassMetadataInfo::MANY_TO_MANY, ClassMetadataInfo::TO_MANY])) {
-                            $type->hasMany(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
-                                ->property($association['fieldName'])->filterable()->includable();
+                            $type->hasMany($association['fieldName'])
+                                ->type(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
+                                ->property($association['fieldName'])
+                                ->filterable()->includable();
                         }
                     }
                 }
