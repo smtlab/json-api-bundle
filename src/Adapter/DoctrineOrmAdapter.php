@@ -39,7 +39,7 @@ class DoctrineOrmAdapter implements AdapterInterface
     public function query(): QueryBuilder
     {
         return $this->em->getRepository($this->entityClass)
-            ->createQueryBuilder($this->name);
+            ->createQueryBuilder($this->name . 's');
     }
 
     /**
@@ -48,7 +48,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function filterByIds($query, array $ids): void
     {
-        $query->where($this->name . '.id = :id');
+        $query->where($this->name . 's.id = :id');
         $query->setParameter('id', $ids);
     }
 
@@ -71,7 +71,7 @@ class DoctrineOrmAdapter implements AdapterInterface
      */
     public function filterByRelationship($query, Relationship $relationship, \Closure $scope): void
     {
-        $query->join($this->name . '.' . $relationship->getProperty(), $relationship->getName());
+        $query->join($this->name . 's.' . $relationship->getProperty(), $relationship->getType());
         $scope($query);
     }
 
@@ -101,7 +101,7 @@ class DoctrineOrmAdapter implements AdapterInterface
     public function find($query, string $id)
     {
         try {
-            return $query->where($this->name . '.id = :id')
+            return $query->where($this->name . 's.id = :id')
                 ->setParameter(':id', $id)
                 ->getQuery()
                 ->getSingleResult();
