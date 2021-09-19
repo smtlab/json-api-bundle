@@ -63,13 +63,16 @@ class JsonApiServer
                                 ->type(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
                                 ->property($association['fieldName'])
                                 ->filterable()
-                                ->includable();
+                                ->includable()
+                                ->writable();
                         }
                         if (in_array($association['type'], [ClassMetadataInfo::ONE_TO_MANY, ClassMetadataInfo::MANY_TO_MANY, ClassMetadataInfo::TO_MANY])) {
                             $type->hasMany($association['fieldName'])
                                 ->type(str_replace('App\Entity\\', '', $association['targetEntity']) . 's')
                                 ->property($association['fieldName'])
-                                ->filterable()->includable();
+                                ->filterable()
+                                ->includable()
+                                ->writable();
                         }
                     }
                 }
