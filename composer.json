@@ -12,13 +12,13 @@
         }
     ],
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "symfony/console": "4.4.*",
-        "symfony/framework-bundle": "4.4.*",
+        "symfony/console": "6.*",
+        "symfony/framework-bundle": "6.*",
         "symfony/psr-http-message-bridge": "^2.1",
-        "symfony/yaml": "4.4.*",
+        "symfony/yaml": "6.*",
         "tobyz/json-api-server": "dev-master"
     },
     "config": {
