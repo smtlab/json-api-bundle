@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4b441139454b3f6233131c2ee919c81d",
+    "content-hash": "fce2d66986c1fde3274406578bd181d7",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2888,16 +2888,16 @@
         },
         {
             "name": "tobyz/json-api-server",
-            "version": "dev-master",
+            "version": "v0.2.0-beta.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tobyzerner/json-api-server.git",
-                "reference": "ec12976b0fc0b46dc2b351ca9351a27410b07dbd"
+                "reference": "4389ebd9283a2d4a39a4f94ec154573084f805e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tobyzerner/json-api-server/zipball/ec12976b0fc0b46dc2b351ca9351a27410b07dbd",
-                "reference": "ec12976b0fc0b46dc2b351ca9351a27410b07dbd",
+                "url": "https://api.github.com/repos/tobyzerner/json-api-server/zipball/4389ebd9283a2d4a39a4f94ec154573084f805e6",
+                "reference": "4389ebd9283a2d4a39a4f94ec154573084f805e6",
                 "shasum": ""
             },
             "require": {
@@ -2915,7 +2915,6 @@
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.4"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2939,16 +2938,16 @@
             "description": "A fully automated JSON:API server implementation in PHP.",
             "support": {
                 "issues": "https://github.com/tobyzerner/json-api-server/issues",
-                "source": "https://github.com/tobyzerner/json-api-server/tree/master"
+                "source": "https://github.com/tobyzerner/json-api-server/tree/v0.2.0-beta.5"
             },
-            "time": "2022-01-03T03:36:42+00:00"
+            "time": "2022-01-03T03:32:22+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "tobyz/json-api-server": 20
+        "tobyz/json-api-server": 10
     },
     "prefer-stable": true,
     "prefer-lowest": false,
